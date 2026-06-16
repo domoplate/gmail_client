@@ -8,7 +8,7 @@ void main() async {
 
   await Supabase.initialize(
     url: 'https://your-project.supabase.co',
-    anonKey: 'your-anon-key',
+    publishableKey: 'your-anon-key',
   );
 
   runApp(const ProviderScope(child: GmailClientExampleApp()));
