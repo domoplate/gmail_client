@@ -1,30 +1,38 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:enviar_gmail/main.dart';
+import 'package:gmail_client/gmail_client.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  test('gmail_client can be imported and instantiated', () {
+    final email = EmailMessage(
+      id: '1',
+      threadId: 'thread1',
+      snippet: 'Hello world',
+      subject: 'Test',
+      from: 'sender@test.com',
+      to: ['receiver@test.com'],
+      date: DateTime(2025, 1, 1),
+      bodyText: 'This is a test email.',
+      labels: ['INBOX'],
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(email.id, '1');
+    expect(email.subject, 'Test');
+    expect(email.from, 'sender@test.com');
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  test('SendEmailResult can be created', () {
+    final result = SendEmailResult(id: 'msg1', threadId: 'th1');
+    expect(result.id, 'msg1');
+    expect(result.threadId, 'th1');
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('ListEmailsResult with nextPageToken', () {
+    final result = ListEmailsResult(
+      messages: [],
+      resultSizeEstimate: 0,
+      nextPageToken: 'token123',
+    );
+    expect(result.nextPageToken, 'token123');
   });
 }

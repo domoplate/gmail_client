@@ -180,7 +180,7 @@ class _InboxScreenState extends ConsumerState<InboxScreen> {
                       onRefresh: () => _loadEmails(),
                       child: ListView.separated(
                         itemCount: _emails.length + (_nextPageToken != null ? 1 : 0),
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                        separatorBuilder: (_, second) => const Divider(height: 1),
                         itemBuilder: (context, index) {
                           if (index >= _emails.length) {
                             return const Center(
