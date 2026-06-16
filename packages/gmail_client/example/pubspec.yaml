@@ -1,0 +1,13 @@
+name: gmail_client_example
+description: Example usage of gmail_client package.
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  gmail_client:
+    path: ..
+
+dev_dependencies:
+  lints: ^6.0.0

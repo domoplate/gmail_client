@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Gmail OAuth</title></head>
+<body style="text-align:center;font-family:sans-serif;padding-top:40px;">
+  <p>Redirigiendo... Si no se cierra, <a href="#" onclick="window.close()">cierra esta ventana</a>.</p>
+  <script>
+    (function() {
+      const code = new URLSearchParams(window.location.search).get('code');
+      const error = new URLSearchParams(window.location.search).get('error');
+      if (code) {
+        localStorage.setItem('gmail_oauth_code', code);
+      }
+      if (error) {
+        localStorage.setItem('gmail_oauth_error', error);
+      }
+      window.close();
+    })();
+  </script>
+</body>
+</html>
