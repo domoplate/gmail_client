@@ -1,8 +1,8 @@
 name: gmail_client
 description: "Core Gmail/Google Workspace client — send and receive emails via Supabase Edge Functions. Pure Dart, framework-agnostic."
 version: 1.0.0
-repository: https://github.com/your-org/enviar_gmail
-issue_tracker: https://github.com/your-org/enviar_gmail/issues
+repository: https://github.com/domoplate/gmail_client
+issue_tracker: https://github.com/domoplate/gmail_client/issues
 topics:
   - gmail
   - email
